@@ -1,0 +1,2 @@
+rootProject.name = "App Repositories"
+include ':app'
