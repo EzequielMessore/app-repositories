@@ -27,14 +27,14 @@ class MainViewModel(
                     _repos.postValue(State.Error(it))
                 }
                 .collect {
-                    _repos.postValue(State.Succsess(it))
+                    _repos.postValue(State.Success(it))
                 }
         }
     }
 
     sealed class State {
         object Loading : State()
-        data class Succsess(val list: List<Repo>) : State()
+        data class Success(val list: List<Repo>) : State()
         data class Error(val error: Throwable) : State()
     }
 }

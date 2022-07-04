@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 MainViewModel.State.Loading -> {
                     dialog.show()
                 }
-                is MainViewModel.State.Succsess -> {
+                is MainViewModel.State.Success -> {
                     dialog.dismiss()
                     adapter.submitList(it.list)
                 }

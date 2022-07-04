@@ -1,5 +1,7 @@
 package br.com.dio.app.repositories.ui
 
+import android.content.Intent
+import android.service.autofill.FieldClassification
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -11,8 +13,10 @@ import com.bumptech.glide.Glide
 
 class RepoListAdapter : ListAdapter<Repo, RepoListAdapter.ViewHolder>(DiffCallback()) {
 
+    private val repos: List<Repo>? = null
+
     inner class ViewHolder(
-        private val binding: ItemRepoBinding
+        private val binding: ItemRepoBinding,
     ) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(item: Repo) {
@@ -23,6 +27,12 @@ class RepoListAdapter : ListAdapter<Repo, RepoListAdapter.ViewHolder>(DiffCallba
 
             Glide.with(binding.root.context)
                 .load(item.owner.avatarURL).into(binding.ivOwner)
+
+            binding.root.setOnClickListener {
+                val intent = Intent(binding.root.context, DetailsActivity::class.java)
+                intent.putExtra(DetailsActivity.Extras.REPO, item)
+                binding.root.context.startActivity(intent)
+            }
         }
     }
 

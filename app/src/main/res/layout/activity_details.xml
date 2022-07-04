@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailsActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_owner"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_repo_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_half_padding"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_owner"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@sample/repositories.json/data/name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_repo_language"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_half_padding"
+        android:layout_marginTop="@dimen/default_margin"
+        android:ellipsize="end"
+        android:maxLines="2"
+        app:layout_constraintStart_toEndOf="@id/iv_owner"
+        app:layout_constraintTop_toBottomOf="@id/tv_repo_name"
+        tools:text="@sample/repositories.json/data/language" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_star"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="@dimen/layout_half_padding"
+        android:layout_marginTop="@dimen/default_margin"
+        app:chipBackgroundColor="@color/white"
+        app:chipIcon="@drawable/ic_stars"
+        app:chipIconTint="@color/yellow_star"
+        app:layout_constraintBottom_toBottomOf="@id/iv_owner"
+        app:layout_constraintStart_toEndOf="@id/iv_owner"
+        tools:text="@sample/repositories.json/data/stargazers_count" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_repo_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chip_star"
+        tools:text="@sample/repositories.json/data/description" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
